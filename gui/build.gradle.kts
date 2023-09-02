@@ -79,14 +79,16 @@ val runGui by tasks.registering(JavaExec::class) {
     description = "Builds and starts Threadtear"
     dependsOn(fatJar)
 
+    jvmArgs = listOf("-noverify")
     workingDir = File(project.rootDir, "dist")
     workingDir.mkdir()
-    main = "me.nov.threadtear.Threadtear"
+    mainClass.value("me.nov.threadtear.Threadtear")
     classpath("$rootDir/dist/threadtear-${project.version}.jar")
 }
 
 tasks.withType<Jar> {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    dependsOn(tasks.getByPath(":threadtear-core:jar"))
 
     manifest {
         attributes("Main-Class" to "me.nov.threadtear.Threadtear")

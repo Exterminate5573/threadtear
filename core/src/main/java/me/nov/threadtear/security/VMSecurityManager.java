@@ -9,6 +9,7 @@ import java.net.InetAddress;
 import java.security.Permission;
 
 
+@SuppressWarnings("removal")
 public final class VMSecurityManager extends SecurityManager {
   private static final String granted = "sun\\..*";
   public boolean grantAll;

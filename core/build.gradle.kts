@@ -19,11 +19,17 @@ dependencies {
     implementation("org.ow2.asm:asm-commons")
     implementation("com.github.Col-E:CAFED00D")
 
-    implementation("com.github.leibnitz27:cfr") { isChanging = true }
+    implementation("com.github.leibnitz27:cfr:0.152") { isChanging = true }
     implementation("org.quiltmc:quiltflower")
     implementation("ch.qos.logback:logback-classic")
 
     implementation("net.fabricmc:mapping-io")
+
+    //Procyon
+    implementation("org.bitbucket.mstrobel:procyon-core:0.6.0")
+    implementation("org.bitbucket.mstrobel:procyon-expressions:0.6.0")
+    implementation("org.bitbucket.mstrobel:procyon-reflection:0.6.0")
+    implementation("org.bitbucket.mstrobel:procyon-compilertools:0.6.0")
 
     //externalLib("fernflower-13-12-22")
 }

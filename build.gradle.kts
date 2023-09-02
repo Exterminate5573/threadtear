@@ -68,8 +68,8 @@ allprojects {
 
     plugins.withType<JavaPlugin> {
         configure<JavaPluginExtension> {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
+            sourceCompatibility = JavaVersion.VERSION_19
+            targetCompatibility = JavaVersion.VERSION_19
         }
 
         if (!skipAutostyle) {
@@ -138,10 +138,10 @@ allprojects {
                         // This includes either project-specific license or a default one
                         if (file("$projectDir/LICENSE").exists()) {
                             textFrom("$projectDir/LICENSE")
-                            rename { s -> "${project.name.toUpperCase()}_LICENSE" }
+                            rename { _ -> "${project.name.uppercase()}_LICENSE" }
                         } else {
                             textFrom("$rootDir/LICENSE")
-                            rename { s -> "${rootProject.name.toUpperCase()}_LICENSE" }
+                            rename { _ -> "${rootProject.name.uppercase()}_LICENSE" }
                         }
                     }
                 }

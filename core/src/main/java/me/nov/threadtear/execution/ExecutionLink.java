@@ -21,6 +21,7 @@ import me.nov.threadtear.execution.generic.inliner.JSRInliner;
 import me.nov.threadtear.execution.paramorphism.AccessObfuscationParamorphism;
 import me.nov.threadtear.execution.paramorphism.BadAttributeRemover;
 import me.nov.threadtear.execution.paramorphism.StringObfuscationParamorphism;
+import me.nov.threadtear.execution.sb27.*;
 import me.nov.threadtear.execution.stringer.AccessObfuscationStringer;
 import me.nov.threadtear.execution.stringer.StringObfuscationStringer;
 import me.nov.threadtear.execution.tools.*;
@@ -52,6 +53,9 @@ public class ExecutionLink {
     add(RemoveMonitors.class);
     add(RemoveTCBs.class);
 
+    add(NumberObfuscationSB27.class);
+    add(StringObfuscationSB27.class);
+
     add(StringObfuscationStringer.class);
     add(AccessObfuscationStringer.class);
 
@@ -78,5 +82,7 @@ public class ExecutionLink {
     add(AddLineNumbers.class);
     add(LogAllExceptions.class);
     add(RemoveMaxs.class);
+
+    //TODO: Plugins mby?
   }};
 }

@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ThreadtearCore {
-  public static void configureEnvironment() throws Exception {
+  public static void configureEnvironment() {
     System.setProperty("file.encoding", "UTF-8");
   }
 
@@ -24,6 +24,7 @@ public class ThreadtearCore {
     LogWrapper.logger.addLogger(LoggerFactory.getLogger("form"));
   }
 
+  @SuppressWarnings("removal")
   public static void run(List<Clazz> classes, List<Execution> executions, boolean disableSecurity, boolean verbose) {
     LogWrapper.logger.info("Threadtear version {}", CoreUtils.getVersion());
     LogWrapper.logger.info("Executing {} tasks on {} classes!", executions.size(), classes.size());

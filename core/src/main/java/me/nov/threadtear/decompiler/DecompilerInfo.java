@@ -23,6 +23,9 @@ public abstract class DecompilerInfo<T extends IDecompilerBridge> {
     list.add(new QuiltflowerBridge.QuiltflowerDecompilerInfo());
     list.add(new KrakatauBridge.KrakatauDecompilerInfo());
 
+    //Procyon
+    list.add(new ProcyonBridge.ProcyonDecompilerInfo());
+
     return list;
   }
 }

@@ -1,10 +1,10 @@
 import com.github.jengelman.gradle.plugins.shadow.transformers.Transformer
 import com.github.jengelman.gradle.plugins.shadow.transformers.TransformerContext
+import org.apache.tools.zip.ZipEntry
+import org.apache.tools.zip.ZipOutputStream
 import org.gradle.api.file.FileTreeElement
 import org.gradle.api.tasks.Input
-import shadow.org.apache.tools.zip.ZipEntry
-import shadow.org.apache.tools.zip.ZipOutputStream
-import shadow.org.codehaus.plexus.util.IOUtil
+import org.codehaus.plexus.util.IOUtil
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 
@@ -46,7 +46,7 @@ class LicenseTransformer : Transformer {
         }
     }
 
-    override fun modifyOutputStream(os: ZipOutputStream?, preserveFileTimestamps: Boolean) {
+    override fun modifyOutputStream(os: ZipOutputStream?, preserveFileTimestamps: Boolean): Unit {
         os?.run {
             putNextEntry(ZipEntry(destinationPath).also {
                 it.time = TransformerContext.getEntryTimestamp(preserveFileTimestamps, it.time)
@@ -54,6 +54,10 @@ class LicenseTransformer : Transformer {
             IOUtil.copy(ByteArrayInputStream(data.toByteArray()), this)
             data.reset()
         }
+    }
+
+    override fun getName(): String {
+        return "LicenseTransformer"
     }
 
     fun include(vararg paths: String) {
