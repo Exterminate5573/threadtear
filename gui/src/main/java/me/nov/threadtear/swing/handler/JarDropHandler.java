@@ -9,7 +9,7 @@ import javax.swing.TransferHandler;
 
 public class JarDropHandler extends TransferHandler {
   private static final long serialVersionUID = -1L;
-  private static final Pattern PATTERN = Pattern.compile(".*(\\.jar|\\.class)");
+  private static final Pattern PATTERN = Pattern.compile(".*(\\.jar|\\.class|\\.zip)");
 
   private final ILoader loader;
 

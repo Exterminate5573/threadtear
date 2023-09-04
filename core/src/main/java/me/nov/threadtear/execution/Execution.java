@@ -20,6 +20,7 @@ public abstract class Execution implements Opcodes {
 
   protected static final LogWrapper logger = LogWrapper.logger;
   protected static final Random random = new Random();
+  protected static final Removeable REMOVEABLE = new Removeable(); //xd
 
   public Execution(ExecutionCategory type, String name, String description, ExecutionTag... tags) {
     this.type = type;
@@ -165,4 +166,11 @@ public abstract class Execution implements Opcodes {
       ((VMSecurityManager) sm).allowReflection(allow);
     }
   }
+
+    //For FieldNode
+    //Wtf i even put this here? xd
+    protected static final class Removeable {
+        private Removeable() {
+        }
+    }
 }
